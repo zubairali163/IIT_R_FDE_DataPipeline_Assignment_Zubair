@@ -1,0 +1,7 @@
+reason,orders,amount
+amount_mismatch,11,560.0
+missing_payment,26,16381.35
+payment_failed_but_delivered,40,24009.65
+payment_for_unknown_order,8,4580.57
+payment_quarantined,1,56.95
+returned_not_refunded,9,0.0

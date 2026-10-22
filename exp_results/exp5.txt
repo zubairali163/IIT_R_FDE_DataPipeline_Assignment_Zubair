@@ -1,0 +1,32 @@
+﻿
+== ETL: the five new rows ==
+  row_key                            failure_reason
+ORDX00001                      customer_id_not_null
+ORDX00002 quantity_positive; amount_matches_formula
+ORDX00003                              store_exists
+ORDX00004                            status_allowed
+ORDX00005                       order_ts_not_future
+ETL dq_results for the relevant checks (orders only):
+            check_name  rows_checked  rows_failed status
+amount_matches_formula          2417           19   FAIL
+  customer_id_not_null          2417           19   FAIL
+   order_ts_not_future          2417            6   FAIL
+     quantity_positive          2417           11   FAIL
+        status_allowed          2417            4   FAIL
+          store_exists          2417          182   FAIL
+
+== ELT: the five new rows ==
+ order_id dq_status                            failure_reason
+ORDX00001      FAIL                      customer_id_not_null
+ORDX00002      FAIL quantity_positive; amount_matches_formula
+ORDX00003      FAIL                              store_exists
+ORDX00004      FAIL                            status_allowed
+ORDX00005      FAIL                       order_ts_not_future
+ELT dq_results for the relevant checks (orders only):
+            check_name  rows_checked  rows_failed status
+amount_matches_formula          2555           19   FAIL
+  customer_id_not_null          2555           19   FAIL
+   order_ts_not_future          2555            6   FAIL
+     quantity_positive          2555           11   FAIL
+        status_allowed          2555            4   FAIL
+          store_exists          2555          187   FAIL

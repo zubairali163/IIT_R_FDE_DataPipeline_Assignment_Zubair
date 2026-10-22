@@ -1,0 +1,110 @@
+﻿
+########## ETL: pipeline_runs (latest 4) ##########
+                                  run_id                       start_time  rows_extracted  rows_loaded  rows_quarantined  status
+manual__2026-10-22T06:37:40.645836+00:00 2026-10-22 06:37:41.489325+00:00            5212         2016               427 SUCCESS
+    scheduled__2026-10-22T03:30:00+00:00 2026-10-22 03:42:23.969182+00:00            5212         2147               427 SUCCESS
+manual__2026-10-21T21:48:39.680491+00:00 2026-10-21 21:48:39.793600+00:00            5212         2147               427 SUCCESS
+manual__2026-10-21T21:45:42.734787+00:00 2026-10-21 21:45:43.155446+00:00            5212         2147               427 SUCCESS
+
+########## ETL: dq_results of run manual__2026-10-22T06:37:40.645836+00:00 ##########
+                   check_name    dimension severity  rows_checked  rows_failed status
+       amount_matches_formula     Accuracy Critical          2412           18   FAIL
+          amount_not_negative     Accuracy Critical          2228            6   FAIL
+            capacity_positive     Accuracy  Warning            15            1   WARN
+                  cost_le_mrp     Accuracy Critical           152            5   FAIL
+           delivery_under_120     Accuracy Critical          2412            6   FAIL
+                 mrp_positive     Accuracy Critical           152            1   FAIL
+            quantity_positive     Accuracy Critical          2412           10   FAIL
+            category_not_null Completeness Critical           152            3   FAIL
+                city_not_null Completeness  Warning           405            6   WARN
+         customer_id_not_null Completeness Critical          2412           18   FAIL
+        delivered_has_minutes Completeness Critical          2412            8   FAIL
+       gateway_ref_unless_cod Completeness  Warning          2228            0   PASS
+       volume_drop_over_90pct Completeness  Warning          2412            0   PASS
+                zone_not_null Completeness Critical            15            1   FAIL
+              customer_exists  Consistency Critical          2412           18   FAIL
+                 order_exists  Consistency  Warning          2228            8   WARN
+               product_exists  Consistency Critical          2412          135   FAIL
+                 store_exists  Consistency Critical          2412          181   FAIL
+                 tier_allowed  Consistency  Warning           405            0   PASS
+latest_order_older_than_1_day   Timeliness  Warning             1            0   PASS
+          order_ts_not_future   Timeliness Critical          2412            5   FAIL
+            signup_not_future   Timeliness Critical           405            3   FAIL
+           customer_id_unique   Uniqueness Critical           405            5   FAIL
+              order_id_unique   Uniqueness Critical          2412           12   FAIL
+            payment_id_unique   Uniqueness Critical          2228            4   FAIL
+            product_id_unique   Uniqueness Critical           152            2   FAIL
+              store_id_unique   Uniqueness Critical            15            0   PASS
+            discount_0_to_100     Validity Critical          2412            3   FAIL
+                 email_format     Validity  Warning           405           12   WARN
+              order_ts_parses     Validity Critical          2412            6   FAIL
+         payment_mode_allowed     Validity Critical          2228            2   FAIL
+         payment_mode_allowed     Validity Critical          2412            2   FAIL
+              phone_10_digits     Validity  Warning           405            7   WARN
+             pincode_6_digits     Validity  Warning           405            3   WARN
+               status_allowed     Validity Critical          2412            3   FAIL
+
+########## ETL: payment reconciliation by reason ##########
+                      reason  orders    amount
+             amount_mismatch      11    560.00
+             missing_payment      26  16381.35
+           order_quarantined     349 233020.48
+payment_failed_but_delivered      40  24009.65
+   payment_for_unknown_order       8   4580.57
+         payment_quarantined       1     56.95
+       returned_not_refunded       9      0.00
+
+########## ELT: pipeline_runs (latest 4) ##########
+                                  run_id                       start_time  rows_extracted  rows_loaded  rows_quarantined  status
+manual__2026-10-22T06:38:07.533815+00:00 2026-10-22 06:38:07.687227+00:00            5372         4916               423 SUCCESS
+    scheduled__2026-10-22T03:30:00+00:00 2026-10-22 03:42:23.955377+00:00            5212         4916               428 SUCCESS
+manual__2026-10-21T21:49:32.331392+00:00 2026-10-21 21:49:33.435936+00:00            5372         4916               428 SUCCESS
+manual__2026-10-21T21:45:51.196531+00:00 2026-10-21 21:45:52.287474+00:00            5372         4916               428 SUCCESS
+
+########## ELT: dq_results of run manual__2026-10-22T06:38:07.533815+00:00 ##########
+                   check_name    dimension severity  rows_checked  rows_failed status
+       amount_matches_formula     Accuracy Critical          2550           18   FAIL
+          amount_not_negative     Accuracy Critical          2224            6   FAIL
+            capacity_positive     Accuracy  Warning            15            1   WARN
+                  cost_le_mrp     Accuracy Critical           150            5   FAIL
+           delivery_under_120     Accuracy Critical          2550            6   FAIL
+                 mrp_positive     Accuracy Critical           150            1   FAIL
+            quantity_positive     Accuracy Critical          2550           10   FAIL
+            category_not_null Completeness Critical           150            3   FAIL
+                city_not_null Completeness  Warning           400            6   WARN
+         customer_id_not_null Completeness Critical          2550           18   FAIL
+        delivered_has_minutes Completeness Critical          2550            8   FAIL
+       gateway_ref_unless_cod Completeness  Warning          2224            0   PASS
+       volume_drop_over_90pct Completeness  Warning          2412            0   PASS
+                zone_not_null Completeness Critical            15            1   FAIL
+              customer_exists  Consistency Critical          2550           19   FAIL
+                 order_exists  Consistency  Warning          2224            8   WARN
+               product_exists  Consistency Critical          2550          145   FAIL
+                 store_exists  Consistency Critical          2550          186   FAIL
+                 tier_allowed  Consistency  Warning           400            0   PASS
+latest_order_older_than_1_day   Timeliness  Warning             1            0   PASS
+          order_ts_not_future   Timeliness Critical          2550            5   FAIL
+            signup_not_future   Timeliness Critical           400            3   FAIL
+           customer_id_unique   Uniqueness Critical           405            5   FAIL
+              order_id_unique   Uniqueness Critical          2412           12   FAIL
+            payment_id_unique   Uniqueness Critical          2228            4   FAIL
+            product_id_unique   Uniqueness Critical           152            2   FAIL
+              store_id_unique   Uniqueness Critical            15            0   PASS
+            discount_0_to_100     Validity Critical          2550            3   FAIL
+                 email_format     Validity  Warning           400           12   WARN
+              order_ts_parses     Validity Critical          2550            6   FAIL
+         payment_mode_allowed     Validity Critical          2224            2   FAIL
+         payment_mode_allowed     Validity Critical          2550            2   FAIL
+              phone_10_digits     Validity  Warning           400            7   WARN
+             pincode_6_digits     Validity  Warning           400            3   WARN
+               status_allowed     Validity Critical          2550            3   FAIL
+
+########## ELT: payment reconciliation by reason ##########
+                      reason  orders    amount
+             amount_mismatch      11    560.00
+             missing_payment      26  16381.35
+           order_quarantined     349 233020.48
+payment_failed_but_delivered      40  24009.65
+   payment_for_unknown_order       8   4580.57
+         payment_quarantined       1     56.95
+       returned_not_refunded       9      0.00

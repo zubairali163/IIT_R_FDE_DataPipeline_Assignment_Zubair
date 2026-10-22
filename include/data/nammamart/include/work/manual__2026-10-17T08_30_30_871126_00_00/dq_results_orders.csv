@@ -1,0 +1,15 @@
+run_id,dag_id,check_name,dimension,severity,rows_checked,rows_failed,status,checked_at
+manual__2026-10-17T08:30:30.871126+00:00,nammamart_etl_Zubair,order_id_unique,Uniqueness,Critical,2412,12,FAIL,2026-10-17T08:30:37.111661
+manual__2026-10-17T08:30:30.871126+00:00,nammamart_etl_Zubair,customer_id_not_null,Completeness,Critical,2412,18,FAIL,2026-10-17T08:30:37.113185
+manual__2026-10-17T08:30:30.871126+00:00,nammamart_etl_Zubair,delivered_has_minutes,Completeness,Critical,2412,8,FAIL,2026-10-17T08:30:37.114251
+manual__2026-10-17T08:30:30.871126+00:00,nammamart_etl_Zubair,status_allowed,Validity,Critical,2412,3,FAIL,2026-10-17T08:30:37.114969
+manual__2026-10-17T08:30:30.871126+00:00,nammamart_etl_Zubair,payment_mode_allowed,Validity,Critical,2412,2,FAIL,2026-10-17T08:30:37.115562
+manual__2026-10-17T08:30:30.871126+00:00,nammamart_etl_Zubair,order_ts_parses,Validity,Critical,2412,6,FAIL,2026-10-17T08:30:37.118369
+manual__2026-10-17T08:30:30.871126+00:00,nammamart_etl_Zubair,discount_0_to_100,Validity,Critical,2412,3,FAIL,2026-10-17T08:30:37.119875
+manual__2026-10-17T08:30:30.871126+00:00,nammamart_etl_Zubair,quantity_positive,Accuracy,Critical,2412,10,FAIL,2026-10-17T08:30:37.121063
+manual__2026-10-17T08:30:30.871126+00:00,nammamart_etl_Zubair,amount_matches_formula,Accuracy,Critical,2412,18,FAIL,2026-10-17T08:30:37.124332
+manual__2026-10-17T08:30:30.871126+00:00,nammamart_etl_Zubair,delivery_under_120,Accuracy,Critical,2412,6,FAIL,2026-10-17T08:30:37.126100
+manual__2026-10-17T08:30:30.871126+00:00,nammamart_etl_Zubair,customer_exists,Consistency,Critical,2412,0,PASS,2026-10-17T08:30:37.127453
+manual__2026-10-17T08:30:30.871126+00:00,nammamart_etl_Zubair,product_exists,Consistency,Critical,2412,9,FAIL,2026-10-17T08:30:37.128391
+manual__2026-10-17T08:30:30.871126+00:00,nammamart_etl_Zubair,store_exists,Consistency,Critical,2412,5,FAIL,2026-10-17T08:30:37.129089
+manual__2026-10-17T08:30:30.871126+00:00,nammamart_etl_Zubair,order_ts_not_future,Timeliness,Critical,2412,7,FAIL,2026-10-17T08:30:37.130528

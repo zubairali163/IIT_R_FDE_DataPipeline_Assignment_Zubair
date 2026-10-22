@@ -1,0 +1,15 @@
+store_id,store_name,zone,delivered_orders,avg_delivery_minutes,pct_within_15_min
+S01,NammaMart Hebbal,North,141,20.6,31.2
+S02,NammaMart Yelahanka,North,139,21.0,30.9
+S03,NammaMart RT Nagar,North,138,20.7,29.0
+S04,NammaMart Jayanagar,South,130,21.6,26.9
+S05,NammaMart JP Nagar,South,134,21.2,29.1
+S06,NammaMart Banashankari,South,145,22.3,22.1
+S08,NammaMart Whitefield,East,155,20.6,35.5
+S09,NammaMart Indiranagar,East,127,21.1,27.6
+S10,NammaMart Marathahalli,East,141,21.9,27.0
+S11,NammaMart HSR Layout,East,144,21.0,27.8
+S12,NammaMart Rajajinagar,West,113,22.0,23.9
+S13,NammaMart Malleshwaram,West,137,21.8,27.0
+S14,NammaMart Vijayanagar,West,162,21.5,31.5
+S15,NammaMart Basaveshwaranagar,West,143,22.3,21.0

@@ -1,0 +1,18 @@
+﻿
+===== ETL =====
+                                  run_id  rows_extracted  rows_loaded  rows_quarantined  status
+manual__2026-10-21T21:36:22.705023+00:00            5212         2151               423 SUCCESS
+manual__2026-10-21T21:35:05.124367+00:00            2850         2147                34 SUCCESS
+dq_results of that run: [('FAIL', 23), ('PASS', 5), ('WARN', 7)]
+                   check_name  rows_checked  rows_failed status
+latest_order_older_than_1_day             1            1   WARN
+etl_fact_orders: (2151, 1054681.2)
+
+===== ELT =====
+                                  run_id  rows_extracted  rows_loaded  rows_quarantined  status
+manual__2026-10-21T21:37:02.001656+00:00            5212         4920               419 SUCCESS
+manual__2026-10-21T21:35:15.883288+00:00            2850         4916               423 SUCCESS
+dq_results of that run: [('FAIL', 23), ('PASS', 5), ('WARN', 7)]
+                   check_name  rows_checked  rows_failed status
+latest_order_older_than_1_day             1            1   WARN
+raw_orders: 56326 | stg_orders: (2550, 2151)

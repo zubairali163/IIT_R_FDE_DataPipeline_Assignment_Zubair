@@ -1,0 +1,114 @@
+====================================================================== 
+1. BASIC PROFILE
+ ======================================================================
+
+--- orders: 2412 rows, 13 cols
+Missing per column: {'order_ts': 2, 'customer_id': 18, 'delivery_minutes': 164}
+  quantity: min=-3 max=5  non-numeric=0
+  unit_price: min=10.0 max=883.0  non-numeric=0
+  discount_pct: min=0 max=250  non-numeric=0
+  order_amount: min=-1593.0 max=9576.0  non-numeric=0
+  delivery_minutes: min=8.0 max=1440.0  non-numeric=0
+
+--- payments: 2228 rows, 7 cols
+Missing per column: {'gateway_ref': 301}
+  amount_paid: min=-1593.0 max=9576.0  non-numeric=0
+
+--- customers: 405 rows, 10 cols
+Missing per column: {'email': 4, 'city': 6}
+  phone: min=9804341 max=9999393305  non-numeric=0
+  pincode: min=0.0 max=560102.0  non-numeric=3
+
+--- products: 152 rows, 10 cols
+Missing per column: {'category': 3}
+  mrp: min=-203.0 max=883.0  non-numeric=0
+  cost_price: min=6.79 max=631.79  non-numeric=0
+
+--- stores: 15 rows, 8 cols
+Missing per column: {'zone': 1}
+  pincode: min=560003 max=560102  non-numeric=0
+  capacity_orders_per_day: min=0 max=600  non-numeric=0
+
+--- orders_increment: 160 rows, 13 cols
+Missing per column: {}
+  quantity: min=1 max=4  non-numeric=0
+  unit_price: min=10.0 max=883.0  non-numeric=0
+  discount_pct: min=0 max=20  non-numeric=0
+  order_amount: min=11.0 max=2052.0  non-numeric=0
+  delivery_minutes: min=8 max=34  non-numeric=0
+
+ ====================================================================== 
+2. DUPLICATE KEYS
+ ======================================================================
+orders.order_id: 12 duplicate rows
+payments.payment_id: 4 duplicate rows
+customers.customer_id: 5 duplicate rows
+products.product_id: 2 duplicate rows
+stores.store_id: 0 duplicate rows
+payments.order_id duplicates: 4
+
+ ====================================================================== 
+3. DISTINCT VALUES (look for casing/spacing variants)
+ ======================================================================
+
+orders.order_status: {'DELIVERED': 2182, 'CANCELLED': 156, 'RETURNED': 69, 'Pending??': 3, 'delivered': 2}
+
+orders.payment_mode: {'UPI': 1329, 'Card': 493, 'Cash on Delivery': 326, 'Wallet': 254, 'upi': 4, 'Cashh': 2, 'UPI ': 2, 'CARD': 1, 'cod': 1}
+
+orders.channel: {'App': 2044, 'Web': 368}
+
+payments.payment_mode: {'UPI': 1238, 'Card': 445, 'Cash on Delivery': 301, 'Wallet': 234, 'upi': 4, 'UPI ': 2, 'Cashh': 2, 'cod': 1, 'CARD': 1}
+
+payments.payment_status: {'SUCCESS': 2116, 'REFUNDED': 68, 'FAILED': 44}
+
+customers.loyalty_tier: {'Bronze': 185, 'Silver': 133, 'Gold': 54, 'Platinum': 25, 'BRONZE': 3, 'bronze': 3, 'SILVER': 2}
+
+customers.is_active: {'Y': 352, 'N': 53}
+
+stores.zone: {'East': 4, 'West': 4, 'North': 3, 'South': 3, '': 1}
+
+products.category: {'Dairy & Bakery': 26, 'Household': 26, 'Fruits & Vegetables': 25, 'Snacks & Beverages': 25, 'Personal Care': 25, 'Staples': 22, '': 3}
+
+ ====================================================================== 
+4. REFERENTIAL INTEGRITY
+ ======================================================================
+orders.customer_id not in customers: 18
+orders.product_id not in products: 9
+orders.store_id not in stores: 5
+payments.order_id not in orders: 8
+
+ ====================================================================== 
+5. BUSINESS RULES
+ ======================================================================
+quantity <= 0: 10
+discount outside 0-100: 3
+order_amount != formula: 18
+DELIVERED without delivery_minutes: 8
+delivery_minutes > 120: 6 | outside 8-35: 6
+unparseable order_ts: 6 | future order_ts: 7
+order_ts range: 2026-09-01 06:30:15 -> 2027-01-01 09:00:00
+SUCCESS payments with amount != order_amount: 14
+products mrp <= 0: 1 | cost_price > mrp: 5
+bad email format: 12
+phone not 10 digits: 7
+pincode not 6 digits: 3
+future signup_date: 3
+
+ ====================================================================== 
+6. INCREMENT FILE vs ORDERS
+ ======================================================================
+increment rows whose order_id already exists (corrections): 10
+brand-new orders: 150
+
+Corrections - status change:
+ order_id order_status_old order_status_new
+ORD000017        DELIVERED         RETURNED
+ORD000271        DELIVERED         RETURNED
+ORD000332        DELIVERED         RETURNED
+ORD000337        DELIVERED         RETURNED
+ORD000584        DELIVERED         RETURNED
+ORD000708        DELIVERED         RETURNED
+ORD000822        DELIVERED         RETURNED
+ORD001025        DELIVERED         RETURNED
+ORD001067        DELIVERED         RETURNED
+ORD001990        DELIVERED         RETURNED

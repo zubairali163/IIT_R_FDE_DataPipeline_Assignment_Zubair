@@ -1,0 +1,6 @@
+﻿ETL store S01 (revenue, delivered orders): (7335655.25, 141)
+ETL all stores revenue: 8308509.1
+ETL quality results of the run: [('FAIL', 24), ('PASS', 5), ('WARN', 6)]
+ELT store S01 (revenue, delivered orders): (7335655.25, 141)
+ELT all stores revenue: 8308509.1
+ELT quality results of the run: [('FAIL', 24), ('PASS', 5), ('WARN', 6)]
